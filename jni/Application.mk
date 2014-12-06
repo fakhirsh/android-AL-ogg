@@ -8,8 +8,7 @@ APP_STL := stlport_static
 #APP_ABI := all
 
 #APP_ABI := armeabi-v7a-hard
-APP_ABI := armeabi-v7a
-#APP_PLATFORM := android-21
+APP_ABI := armeabi-v7a x86 mips 
 
 #NDK_TOOLCHAIN_VERSION=clang
 #LOCAL_ARM_MODE := arm
