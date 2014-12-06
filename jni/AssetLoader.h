@@ -28,7 +28,7 @@ class AssetLoader
 public:
     ~AssetLoader(){}
     
-    static void GetAssetStream(std::string assetPath, std::vector<char> & buffer);
+    static bool GetAssetStream(std::string assetPath, std::vector<char> & buffer);
     
     static AAssetManager * assetManager;
     

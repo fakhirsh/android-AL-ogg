@@ -11,13 +11,13 @@
 
 AAssetManager * AssetLoader::assetManager = NULL;
 
-void AssetLoader::GetAssetStream(std::string assetPath, std::vector<char> & buffer)
+bool AssetLoader::GetAssetStream(std::string assetPath, std::vector<char> & buffer)
 {
     
     AAsset * asset = AAssetManager_open(assetManager, assetPath.c_str(), AASSET_MODE_UNKNOWN);
     if(!asset)
     {
-        return;
+        return false;
     }
     
     int size = AAsset_getLength(asset);
@@ -27,5 +27,6 @@ void AssetLoader::GetAssetStream(std::string assetPath, std::vector<char> & buff
     
     AAsset_close(asset);
     
+    return true;
 }
 

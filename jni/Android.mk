@@ -19,6 +19,9 @@ LOCAL_PATH := $(call my-dir)
 
 include jni/3rdParty/libpng-1.6.15/Android.mk
 include jni/3rdParty/zlib-1.2.8/Android.mk
+include jni/3rdParty/OpenAL-soft-android/Android.mk
+include jni/3rdParty/libvorbis-1.3.4/Android.mk
+include jni/3rdParty/libogg-1.3.2/Android.mk
 
 ################################################################
 
@@ -31,13 +34,16 @@ LOCAL_MODULE    := JNIGlue
 LOCAL_CFLAGS    := -Werror
 LOCAL_LDLIBS	:= -llog -lGLESv2 -landroid
 
-LOCAL_C_INCLUDES := jni/3rdParty/libpng-1.6.15
+LOCAL_C_INCLUDES := 	jni/3rdParty/libpng-1.6.15	\
+			jni/3rdParty/OpenAL-soft-android/include	\
+			jni/3rdParty/libvorbis-1.3.4/include		\
+			jni/3rdParty/libogg-1.3.2/include		
 
 
-LOCAL_STATIC_LIBRARIES := libpng
+LOCAL_STATIC_LIBRARIES := libpng openal libvorbis
 
 
-LOCAL_SRC_FILES := 	JNIGlue.cpp GLDemo.cpp AssetLoader.cpp Texture.cpp
+LOCAL_SRC_FILES := 	JNIGlue.cpp GLDemo.cpp AssetLoader.cpp Texture.cpp ALDemo.cpp
 			
 
 include $(BUILD_SHARED_LIBRARY)

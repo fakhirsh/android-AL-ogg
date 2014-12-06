@@ -7,6 +7,7 @@
 #include <android/log.h>
 
 #include "GLDemo.h"
+#include "ALDemo.h"
 #include "AssetLoader.h"
 
 #define  LOG_TAG    "JNIGlue"
@@ -42,6 +43,15 @@ JNIEXPORT void JNICALL Java_com_fakhir_AndroidALOgg_JNIGlue_Init( JNIEnv* env, j
     LOGI("------------------ Asset manager loaded-----------------");
     
     setupGraphics(width, height, bundlePath);
+    
+    if(!InitSound())
+    {
+        LOGI("------------------Error initializing sound -----------------");
+    }
+    
+    LOGI("------------------Sound initialized -----------------");
+    
+    PlaySound();
     
 }
 
